@@ -51,7 +51,7 @@
             </tbody></table>
             <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
 
-              <tr onmouseout="cat4d_stop()" onmouseover="cat4d_start()" bgcolor="#ffffd0">
+              <tr onmouseout="davigs_stop()" onmouseover="davigs_start()" bgcolor="#ffffd0">
                 <td style="padding:16px;width:20%;vertical-align:middle">
                   <div class="one" style="display: flex; align-items: center;">
                     <div class="two" id='DAVIGS_video'><video  width=100% height=100% muted autoplay loop>
@@ -61,16 +61,17 @@
                     <img src='images/DAVIGS.png' id='DAVIGS_image' width=100%>
                   </div>
                   <script type="text/javascript">
-                    function cat4d_start() {
+                    function davigs_start() {
+                      debugger
                       document.getElementById('DAVIGS_video').style.opacity = "1";
                       document.getElementById('DAVIGS_image').style.opacity = "0";
                     }
 
-                    function cat4d_stop() {
+                    function davigs_stop() {
                       document.getElementById('DAVIGS_video').style.opacity = "0";
                       document.getElementById('DAVIGS_image').style.opacity = "1";
                     }
-                    cat4d_stop()
+                    davigs_stop()
                   </script>
                 </td>
                 
@@ -99,7 +100,7 @@
                 </td>
               </tr>
 
-              <tr onmouseout="cat4d_stop()" onmouseover="cat4d_start()" bgcolor="#ffffd0">
+              <tr onmouseout="vase_stop()" onmouseover="vase_start()" bgcolor="#ffffd0">
                 <td style="padding:16px;width:20%;vertical-align:middle">
                   <div class="one" style="display: flex; align-items: center;">
                     <div class="two" id='vastgaussian_video'><video  width=100% height=100% muted autoplay loop>
@@ -109,16 +110,16 @@
                     <img src='images/vastgaussian.png' id='vastgaussian_image' width="160">
                   </div>
                   <script type="text/javascript">
-                    function cat4d_start() {
+                    function vase_start() {
                       document.getElementById('vastgaussian_video').style.opacity = "1";
                       document.getElementById('vastgaussian_image').style.opacity = "0";
                     }
 
-                    function cat4d_stop() {
+                    function vase_stop() {
                       document.getElementById('vastgaussian_video').style.opacity = "0";
                       document.getElementById('vastgaussian_image').style.opacity = "1";
                     }
-                    cat4d_stop()
+                    vase_stop()
                   </script>
                 </td>
                 
