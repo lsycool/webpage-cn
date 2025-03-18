@@ -50,6 +50,96 @@
               </tr>
             </tbody></table>
             <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+              <tr onmouseout="ocllugs_stop()" onmouseover="ocllugs_start()" bgcolor="#ffffd0">
+                <td style="padding:16px;width:20%;vertical-align:middle">
+                  <div class="one" style="display: flex; align-items: center;">
+                    <div class="two" id='occlugaussian_video'><video  width=100% height=100% muted autoplay loop>
+                    <source src="images/occlugaussian.mp4" type="video/mp4">
+                      Your browser does not support the video tag.
+                    </video></div>
+                    <img src='images/occlugaussian.jpg' id='occlugaussian_image' width=100%>
+                  </div>
+                  <script type="text/javascript">
+                    function ocllugs_start() {
+                      document.getElementById('occlugaussian_video').style.opacity = "1";
+                      document.getElementById('occlugaussian_image').style.opacity = "0";
+                    }
+
+                    function ocllugs_stop() {
+                      document.getElementById('occlugaussian_video').style.opacity = "0";
+                      document.getElementById('occlugaussian_image').style.opacity = "1";
+                    }
+                    ocllugs_stop()
+                  </script>
+                </td>
+                
+                <td style="padding:8px;width:80%;vertical-align:middle">
+                  <a href="">
+                    <span class="papertitle">OccluGaussian: Occlusion-Aware Gaussian Splatting for Large Scene Reconstruction and Rendering</span>
+                  </a>
+                  <br>
+                  <strong>Shiyong Liu</strong>,
+                  <a>Xiao Tang</a>,
+                  <a>Zhihao Li</a>,
+                  <a>Yingfan He</a>
+                  <a>ChongJie Ye</a>,
+                  <a>Jianzhuang Liu</a>,
+                  <a>Binxiao Huang</a>
+                  <a>Shunbo Zhou</a>
+                  <a>Xiaofei Wu</a>
+                  <br>
+                  <em>arXiv</em>, 2025
+                  <br>
+                  <a href="">arXiv</a>
+                  <p></p>
+                  <p>
+                    A method for accelerating and enhancing large-scale 3D scene reconstruction via occlusion-aware camera clustering and region-based Gaussian culling.
+                  </p>
+                </td>
+              </tr>
+
+              <tr onmouseout="dahyf_stop()" onmouseover="dahyf_start()" bgcolor="#ffffd0">
+                <td style="padding:16px;width:20%;vertical-align:middle">
+                  <div class="one" style="display: flex; align-items: center;">
+                    <div class="two" id='dahyf_video'><video  width=100% height=100% muted autoplay loop>
+                    <source src="images/dahyf.mp4" type="video/mp4">
+                      Your browser does not support the video tag.
+                    </video></div>
+                    <img src='images/dahyf.png' id='dahyf_image' width=100%>
+                  </div>
+                  <script type="text/javascript">
+                    function dahyf_start() {
+                      document.getElementById('dahyf_video').style.opacity = "1";
+                      document.getElementById('dahyf_image').style.opacity = "0";
+                    }
+
+                    function dahyf_stop() {
+                      document.getElementById('dahyf_video').style.opacity = "0";
+                      document.getElementById('dahyf_image').style.opacity = "1";
+                    }
+                    dahyf_stop()
+                  </script>
+                </td>
+                
+                <td style="padding:8px;width:80%;vertical-align:middle">
+                  <a href="">
+                    <span class="papertitle">Direction-Aware Hybrid Representation Learning for 3D Hand Pose and Shape Estimation</span>
+                  </a>
+                  <br>
+                  <strong>Shiyong Liu</strong>,
+                  <a>Zhihao Li</a>,
+                  <a>Xiao Tang</a>,
+                  <a>Jianzhuang Liu</a>,
+                  <br>
+                  <em>arXiv</em>, 2025
+                  <br>
+                  <a href="">arXiv</a>
+                  <p></p>
+                  <p>
+                    A method for 3D hand pose/shape estimation, fusing implicit image/explicit 2D joint features with pixel direction info, reducing motion jitter via confidence-based prediction.
+                  </p>
+                </td>
+              </tr>
 
               <tr onmouseout="davigs_stop()" onmouseover="davigs_start()" bgcolor="#ffffd0">
                 <td style="padding:16px;width:20%;vertical-align:middle">
