@@ -35,7 +35,38 @@
                   </p>
                 </td>
                 <td style="padding:2.5%;width:37%;max-width:37%">
-                  <a href="images/liushiyong.jpg"><img style="width:100%;max-width:100%;object-fit: cover; border-radius: 50%;" alt="profile photo" src="images/liushiyong.jpg" class="hoverZoomLink"></a>
+                  <!-- <a href="images/liushiyong.jpg"><img style="width:100%;max-width:100%;object-fit: cover; border-radius: 50%;" alt="profile photo" src="images/liushiyong.jpg" class="hoverZoomLink"></a> -->
+                  <div id='avatar_lsy' style="display: flex; align-items: center; width: 251px; height: 251px; position: relative; cursor: pointer;" onmouseout="liushiyong_stop()" onmouseover="liushiyong_start()">
+                    <div id='liushiyong_video' style="width: 251px; height: 251px; position: absolute;" class="two">
+                      <video  id="digital_lsy" style="width:100%; height:100%; border-radius: 50%;" width=100% height=100% playsinline autoplay>
+                        <source src="images/liushiyong.mp4" type="video/mp4">
+                          Your browser does not support the video tag.
+                      </video>
+                    </div>
+                    <img style="width:100%; max-width:100%; object-fit: cover; border-radius: 50%;" src='images/liushiyong.jpg' id='liushiyong_image' width=100% class="hoverZoomLink">
+                  </div>
+                  <script type="text/javascript">
+                    function liushiyong_start() {
+                      document.getElementById('liushiyong_video').style.opacity = "1";
+                      document.getElementById('liushiyong_image').style.opacity = "0";
+                    }
+
+                    function liushiyong_stop() {
+                      document.getElementById('liushiyong_video').style.opacity = "0";
+                      document.getElementById('liushiyong_image').style.opacity = "1";
+                    }
+                    liushiyong_stop()
+
+                    const playButton = document.getElementById('avatar_lsy');
+                    const video = document.getElementById('digital_lsy');
+                    playButton.addEventListener('click', function () {
+                      if (video.paused) {
+                        video.play();
+                      } else {
+                        video.pause();
+                      }
+                    });
+                  </script>
                 </td>
               </tr>
             </tbody></table>
@@ -149,10 +180,12 @@
               <tr onmouseout="SpecTRe_stop()" onmouseover="SpecTRe_start()" bgcolor="#ffffd0">
                 <td style="padding:16px;width:20%;vertical-align:middle">
                   <div class="one" style="display: flex; align-items: center;">
-                    <div class="two" id='SpecTRe_video'><video  width=100% height=100% muted autoplay loop>
-                    <source src="images/SpecTRe.mp4" type="video/mp4">
-                      Your browser does not support the video tag.
-                    </video></div>
+                    <div class="two" id='SpecTRe_video'>
+                      <video  width=100% height=100% muted autoplay loop>
+                        <source src="images/SpecTRe.mp4" type="video/mp4">
+                          Your browser does not support the video tag.
+                      </video>
+                    </div>
                     <img src='images/SpecTRe.svg' id='SpecTRe_image' width=100%>
                   </div>
                   <script type="text/javascript">
