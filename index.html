@@ -228,9 +228,62 @@
                   <a href="">arXiv</a>
                   <p></p>
                   <p>
-                    A method for enhancing 3DGS with ray tracing for specular inter-reflections, separating specular/rough surface types and optimizing geometry to improve rendering accuracy and enable scene editing.                  </p>
+                    A method for enhancing 3DGS with ray tracing for specular inter-reflections, separating specular/rough surface types and optimizing geometry to improve rendering accuracy and enable scene editing.</p>
                 </td>
               </tr>
+
+              <tr onmouseout="Hybrid_stop()" onmouseover="Hybrid_start()" bgcolor="#ffffd0">
+                <td style="padding:16px;width:20%;vertical-align:middle">
+                  <div class="one" style="display: flex; align-items: center;">
+                    <div class="two" id='Hybrid_video'>
+                      <video  width=100% height=100% muted autoplay loop>
+                        <source src="images/Hybrid.mp4" type="video/mp4">
+                          Your browser does not support the video tag.
+                      </video>
+                    </div>
+                    <img src='images/Hybrid.svg' id='Hybrid_image' width=100%>
+                  </div>
+                  <script type="text/javascript">
+                    function Hybrid_start() {
+                      document.getElementById('Hybrid_video').style.opacity = "1";
+                      document.getElementById('Hybrid_image').style.opacity = "0";
+                    }
+
+                    function Hybrid_stop() {
+                      document.getElementById('Hybrid_video').style.opacity = "0";
+                      document.getElementById('Hybrid_image').style.opacity = "1";
+                    }
+                    Hybrid_stop()
+                  </script>
+                </td>
+                
+                <td style="padding:8px;width:80%;vertical-align:middle">
+                  <a href="">
+                    <span class="papertitle">Hybrid Mesh-Gaussian Representation for Efficient Indoor Scene Reconstruction</span>
+                  </a>
+                  <br>
+                  <a>Binxiao Huang</a>,
+                  <a>Zhihao Li</a>,
+                  <strong>Shiyong Liu</strong>,
+                  <a>Xiao Tang</a>,
+                  <a>Jiajun Tang</a>,
+                  <a>Jiaqi Lin</a>,
+                  <a>Yuxin Cheng</a>,
+                  <a>Zhenyu Chen</a>,
+                  <a>Xiaofei Wu</a>,
+                  <a>Ngai Wong</a>
+                  <br>
+                  <em>IJCAI</em>, 2025
+                  <br>
+                  <a href="">project page</a>
+                  /
+                  <a href="">arXiv</a>
+                  <p></p>
+                  <p>
+                    A hybrid 3DGS and textured mesh representation, where meshes handle texture-rich flat regions and Gaussians model complex geometries, optimized via joint training with a warm-up strategy and transmittance-aware supervision, achieving comparable rendering quality at higher FPS with fewer Gaussians.</p>
+                </td>
+              </tr>
+
 
               <tr onmouseout="davigs_stop()" onmouseover="davigs_start()" bgcolor="#ffffd0">
                 <td style="padding:16px;width:20%;vertical-align:middle">
