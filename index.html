@@ -2,23 +2,111 @@
 <html lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Shiyong Liu</title>
 
     <meta name="author" content="Shiyong Liu">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
-  </head>
+    <style>
+      /* 移动端响应式样式 */
+      @media (max-width: 768px) {
+        /* 基础样式调整 */
+        body {
+          padding: 0 5%;
+        }
+        
+        /* 个人信息区域 */
+        .name {
+          font-size: 26px;
+          padding-top: 15px;
+        }
+        
+        /* 表格布局调整为垂直排列 */
+        table, tbody, tr, td {
+          display: block;
+          width: 100% !important;
+        }
+        
+        /* 头像区域优化 - 水平居中 */
+        .avatar-container {
+          display: flex;
+          justify-content: center;
+          margin: 0 auto 20px;
+          width: 100% !important;
+          padding: 2.5% 0 !important;
+        }
+        
+        #avatar_lsy {
+          margin: 0 auto;
+          width: 200px !important;
+          height: 200px !important;
+        }
+        
+        #liushiyong_video, #liushiyong_image {
+          width: 200px !important;
+          height: 200px !important;
+        }
+        
+        /* 研究论文区域 */
+        .one {
+          width: 100% !important;
+          height: auto !important;
+          margin: 0 auto 15px;
+        }
+        
+        .two, .one img, .one video {
+          width: 100% !important;
+          height: auto !important;
+          max-width: 300px;
+          margin: 0 auto;
+          display: block;
+        }
+        
+        /* 调整间距和字体 */
+        td {
+          padding: 10px 0 !important;
+        }
+        
+        h2 {
+          font-size: 20px;
+          margin: 15px 0 10px;
+        }
+        
+        p, a, strong {
+          font-size: 13px;
+          line-height: 1.6;
+        }
+        
+        .papertitle {
+          font-size: 15px;
+        }
+        
+        /* 导航链接 */
+        p:nth-of-type(3) {
+          margin: 15px 0;
+          line-height: 2;
+        }
 
+        /* 个人信息文本区域 */
+        .personal-info {
+          text-align: center;
+          padding: 2.5% 0 !important;
+        }
+      }
+    </style>
+  </head>
   <body>
+    <!-- 页面内容保持不变 -->
     <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
       <tbody>
         <tr style="padding:0px">
           <td style="padding:0px">
+            <!-- 个人信息和头像区域 -->
             <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
               <tr style="padding:0px">
-                <td style="padding:2.5%;width:63%;vertical-align:middle">
+                <!-- 个人信息区域 - 添加类名用于样式控制 -->
+                <td style="padding:2.5%;width:63%;vertical-align:middle" class="personal-info">
                   <p class="name" style="text-align: center;">
                     Shiyong Liu
                   </p>
@@ -34,7 +122,9 @@
                     <a href="https://github.com/lsycool/">Github</a>
                   </p>
                 </td>
-                <td style="padding:2.5%;width:37%;max-width:37%">
+                
+                <!-- 头像区域 - 添加类名用于居中控制 -->
+                <td style="padding:2.5%;width:37%" class="avatar-container">
                   <!-- <a href="images/liushiyong.jpg"><img style="width:100%;max-width:100%;object-fit: cover; border-radius: 50%;" alt="profile photo" src="images/liushiyong.jpg" class="hoverZoomLink"></a> -->
                   <div id='avatar_lsy' style="display: flex; align-items: center; width: 251px; height: 251px; position: relative; cursor: pointer;" onmouseout="liushiyong_stop()" onmouseover="liushiyong_start()">
                     <div id='liushiyong_video' style="width: 251px; height: 251px; position: absolute;" class="two">
@@ -70,6 +160,8 @@
                 </td>
               </tr>
             </tbody></table>
+            
+            <!-- 研究内容区域 -->
             <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
                 <tr>
                 <td style="padding:16px;width:100%;vertical-align:middle">
@@ -80,7 +172,10 @@
                 </td>
               </tr>
             </tbody></table>
+            
+            <!-- 论文列表（保持不变） -->
             <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+              <!-- 论文内容保持不变 -->
               <tr onmouseout="ocllugs_stop()" onmouseover="ocllugs_start()" bgcolor="#ffffd0">
                 <td style="padding:16px;width:20%;vertical-align:middle">
                   <div class="one" style="display: flex; align-items: center;">
@@ -545,7 +640,8 @@
                 </td>
               </tr>
             </tbody></table>
-
+            
+            <!-- 其他内容区域 -->
             <table style="width:100%; margin:0 auto; border:0; border-spacing:0; padding:16px;"><tbody>
               <tr>
                 <td>
@@ -553,6 +649,8 @@
                 </td>
               </tr>
             </tbody></table>
+            
+            <!-- 行业项目区域 -->
             <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>  
               <!-- <tr>
                 <td align="center" style="padding:16px;width:20%;vertical-align:middle">
@@ -633,6 +731,8 @@
                 </td>
               </tr>
             </tbody></table>
+            
+            <!-- 页脚 -->
             <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
               <tr>
                 <td style="padding:0px">
