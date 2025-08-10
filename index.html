@@ -166,7 +166,7 @@
                   <br>
                   <em>CVPRW</em>, 2025, 
                   <span class="glowing-text">
-                    First Place in HO3Dv2/v3 leaderboards for the metric of PA-MPJPE
+                    <b>First Place in HO3Dv2/v3 leaderboards for the metric of PA-MPJPE</b>
                   </span>
                   <br>
                   <a href="">project page</a>
@@ -222,7 +222,7 @@
                   <br>
                   <em>CVPR</em>, 2025,
                   <span class="glowing-text">
-                    Highlight
+                    <b>Highlight</b>
                   </span>
                   <br>
                   <a href="https://spectre-gs.github.io/">project page</a>
@@ -492,6 +492,55 @@
                   <p></p>
                   <p>
                     MirrorGaussian achieves high-quality and real-time rendering in scenes with mirrors, empowering scene editing like adding new mirrors and objects.
+                  </p>
+                </td>
+              </tr>
+
+              <tr onmouseout="unorthogonalized_stop()" onmouseover="unorthogonalized_start()" bgcolor="#ffffd0">
+                <td style="padding:16px;width:20%;vertical-align:middle">
+                  <div class="one" style="display: flex; align-items: center;">
+                    <div class="two" id='unorthogonalized_video'><video  width=100% height=100% muted autoplay loop>
+                      <source src="" type="video/mp4">
+                      Your browser does not support the video tag.
+                      </video></div>
+                      <img src='images/unorthogonalized.png' id='unorthogonalized_image' width="160">
+                  </div>
+                  <script type="text/javascript">
+                    function unorthogonalized_start() {
+                      document.getElementById('unorthogonalized_video').style.opacity = "1";
+                      document.getElementById('unorthogonalized_image').style.opacity = "0";
+                    }
+
+                    function unorthogonalized_stop() {
+                      document.getElementById('unorthogonalized_video').style.opacity = "0";
+                      document.getElementById('unorthogonalized_image').style.opacity = "1";
+                    }
+                    ever_stop()
+                  </script>
+                </td>
+                <td style="padding:8px;width:80%;vertical-align:middle">
+                  <a href="https://arxiv.org/pdf/2312.00462">
+                <span class="papertitle">LEARNING UNORTHOGONALIZED MATRICES FOR ROTATION ESTIMATION</span>
+                  </a>
+                  <br>
+                  <a>Kerui Gu</a>, 
+                  <a>Zhihao Li</a>,
+                  <strong>Shiyong Liu</strong>,
+                  <a>Jianzhuang Liu</a>,
+                  <a>Songcen Xu</a>,
+                  <a>Youliang Yan</a>,
+                  <a>Michael Bi Mi</a>,
+                  <a>Kenji Kawaguchi</a>,
+                  <a>Angela Yao</a>
+                  <br>
+                  <em>arXiv</em>, 2023
+                  <br>
+                  <a href="">project page</a>
+                  /
+                  <a href="https://arxiv.org/pdf/2312.00462">arXiv</a>
+                  <p></p>
+                  <p>
+                    Estimating 3D rotations relies on rotation representations, and this work reveals that common orthogonalization procedures slow training efficiency, thus advocating learning unorthogonalized Pseudo Rotation Matrices (PRoM) which converge faster to better solutions and achieve state-of-the-art results in human pose estimation on large-scale benchmarks.
                   </p>
                 </td>
               </tr>
