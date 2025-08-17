@@ -9,6 +9,48 @@
     <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
     <style>
+      /* 通用样式 */
+      .media-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+      }
+      
+      .media-container img,
+      .media-container video {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+      
+      .overlay-media {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      /* 论文内容行容器：统一子元素顶端对齐 */
+      .paper-content {
+        display: flex;
+        flex-direction: column;
+      }
+      
+      /* 媒体容器外层：取消默认padding，与标题顶端对齐 */
+      .media-wrapper {
+        padding: 10px !important; /* 清除默认垂直padding，避免顶部偏移 */
+      }
+      
+      /* 论文标题外层：取消默认padding，与媒体容器顶端对齐 */
+      .title-wrapper {
+        padding: 10px 15px !important; /* 仅保留水平padding，清除垂直padding */
+      }
+
       /* 移动端响应式样式 */
       @media (max-width: 768px) {
         /* 基础样式调整 */
@@ -48,19 +90,12 @@
           height: 200px !important;
         }
         
-        /* 研究论文区域 */
+        /* 研究论文区域：确保媒体容器与标题顶端对齐 */
         .one {
           width: 100% !important;
           height: auto !important;
-          margin: 0 auto 15px;
-        }
-        
-        .two, .one img, .one video {
-          width: 100% !important;
-          height: auto !important;
-          max-width: 300px;
-          margin: 0 auto;
-          display: block;
+          margin: 0 auto !important; /* 清除顶部margin，避免偏移 */
+          padding: 0 !important; /* 清除内边距，与标题顶端对齐 */
         }
         
         /* 调整间距和字体 */
@@ -80,6 +115,7 @@
         
         .papertitle {
           font-size: 15px;
+          margin-top: 0 !important; /* 清除标题默认顶部margin */
         }
         
         /* 导航链接 */
@@ -92,6 +128,50 @@
         .personal-info {
           text-align: center;
           padding: 2.5% 0 !important;
+        }
+
+        /* 论文行容器：垂直排列且子元素顶端对齐 */
+        .paper-row {
+          display: flex;
+          flex-direction: column-reverse;
+          box-sizing: border-box;
+          margin-bottom: 20px; /* 论文间增加间距，避免重叠 */
+        }
+
+        /* 限制视频容器最大高度并自动调整宽度保持比例 */
+        .media-container {
+          max-height: 200px; /* 根据需要调整合适高度 */
+        }
+        
+        .media-container video,
+        .media-container img {
+          max-height: 100px;
+          object-fit: contain; /* 保持视频/图片比例，避免拉伸 */
+        }
+        
+      }
+      /* 桌面端保持原有布局 + 顶端对齐 */
+      @media (min-width: 769px) {
+        .paper-row {
+          display: table-row;
+        }
+        
+        /* 桌面端：论文内容行横向排列，子元素顶端对齐 */
+        .paper-content {
+          display: table-row;
+        }
+        
+        .media-wrapper, .title-wrapper {
+          vertical-align: top !important; /* 强制子元素顶端对齐 */
+        }
+        
+        .one {
+          margin-top: 0 !important;
+          padding-top: 0 !important;
+        }
+        
+        .papertitle {
+          margin-top: 0 !important;
         }
       }
     </style>
@@ -110,25 +190,24 @@
                   <p class="name" style="text-align: center;">
                     刘世永
                   </p>
-                  <p>我是大疆创新科技的研究科学家，现居中国深圳，主要从事4D世界模型相关研究与开发工作。
+                  <p>我目前任职于中国深圳大疆创新，担任研究科学家，所在团队主要聚焦 4D 世界模型的相关研究。
                   </p>
                   <p>
-                    我参与了空地融合的大场景重建和生成、端云协同实时重建、SfM、相机位姿估计、动作捕捉、虚拟现实、多模态推荐与搜索、缺陷检测和机器视觉等项目。我在国防科学技术大学获得硕士学位。
+                    我的研究经验涵盖大场景重建（融合无人机与地面采集技术）、相机位姿估计、动作捕捉、虚拟现实、多模态推荐与搜索、缺陷检测及机器视觉等领域，硕士学位毕业于国防科技大学。
                   </p>
                   <p style="text-align:center">
                     <a href="mailto:lsy97_cug@163.com">邮箱</a> &nbsp;/&nbsp;
-                    <a href="http://shiyongliu.cn/">EN<span style="font-size: 10px;">/</span><b>CN</b></a> &nbsp;/&nbsp;
-                    <a href="https://scholar.google.com/citations?pli=1&authuser=1&user=3mIbHHkAAAAJ">学术论文</a> &nbsp;/&nbsp;
+                    <a href="http://liushiyong.cn/"><b>CN</b><span style="font-size: 10px;">/</span>EN</a> &nbsp;/&nbsp;
+                    <a href="https://scholar.google.com/citations?pli=1&authuser=1&user=3mIbHHkAAAAJ">学术谷歌</a> &nbsp;/&nbsp;
                     <a href="https://github.com/lsycool/">Github</a>
                   </p>
                 </td>
                 
                 <!-- 头像区域 - 添加类名用于居中控制 -->
                 <td style="padding:2.5%;width:37%" class="avatar-container">
-                  <!-- <a href="images/liushiyong.jpg"><img style="width:100%;max-width:100%;object-fit: cover; border-radius: 50%;" alt="profile photo" src="images/liushiyong.jpg" class="hoverZoomLink"></a> -->
-                  <div id='avatar_lsy' style="display: flex; align-items: center; width: 251px; height: 251px; position: relative; cursor: pointer;" onmouseout="liushiyong_stop()" onmouseover="liushiyong_start()">
-                    <div id='liushiyong_video' style="width: 251px; height: 251px; position: absolute;" class="two">
-                      <video  id="digital_lsy" style="width:100%; height:100%; border-radius: 50%;" width=100% height=100% playsinline autoplay>
+                  <div id='avatar_lsy' style="display: flex; align-items: center; justify-content: center; width: 251px; height: 251px; position: relative; cursor: pointer;" onmouseout="liushiyong_stop()" onmouseover="liushiyong_start()">
+                    <div id='liushiyong_video' style="width: 251px; height: 251px; position: absolute;" class="overlay-media">
+                      <video  id="digital_lsy" style="border-radius: 50%;" width=100% height=100% playsinline autoplay>
                         <source src="images/liushiyong.mp4" type="video/mp4">
                           您的浏览器不支持视频标签。
                       </video>
@@ -167,7 +246,7 @@
                 <td style="padding:16px;width:100%;vertical-align:middle">
                   <h2>研究方向</h2>
                   <p>
-                    我的研究兴趣是3D计算机视觉，包括相机位姿估计、动作捕捉和3D重建。部分论文已<span class="highlight">突出显示</span>。
+                    我对3D计算机视觉感兴趣，包括相机位姿估计、动作捕捉和3D重建。部分论文已<span class="highlight">突出显示</span>。
                   </p>
                 </td>
               </tr>
@@ -175,15 +254,20 @@
             
             <!-- 论文列表（保持不变） -->
             <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-              <!-- 论文内容保持不变 -->
-              <tr onmouseout="ocllugs_stop()" onmouseover="ocllugs_start()" bgcolor="#ffffd0">
-                <td style="padding:16px;width:20%;vertical-align:middle">
-                  <div class="one" style="display: flex; align-items: center;">
-                    <div class="two" id='occlugaussian_video'><video  width=100% height=100% muted autoplay loop>
-                    <source src="images/occlugaussian.mp4" type="video/mp4">
-                      您的浏览器不支持视频标签。
-                    </video></div>
-                    <img src='images/occlugaussian.jpg' id='occlugaussian_image' width=100%>
+              <!-- 论文1: OccluGaussian -->
+              <tr onmouseout="ocllugs_stop()" onmouseover="ocllugs_start()" bgcolor="#ffffd0" class="paper-row">
+                <!-- 媒体容器外层：添加.media-wrapper确保顶端对齐 -->
+                <td class="media-wrapper" style="width:20%;vertical-align:middle">
+                  <div class="one">
+                    <div class="media-container">
+                      <div class="overlay-media" id='occlugaussian_video'>
+                        <video muted autoplay loop>
+                          <source src="images/occlugaussian.mp4" type="video/mp4">
+                          您的浏览器不支持视频标签。
+                        </video>
+                      </div>
+                      <img src='images/occlugaussian.jpg' id='occlugaussian_image' width=100%>
+                    </div>
                   </div>
                   <script type="text/javascript">
                     function ocllugs_start() {
@@ -198,8 +282,8 @@
                     ocllugs_stop()
                   </script>
                 </td>
-                
-                <td style="padding:8px;width:80%;vertical-align:middle">
+                <!-- 论文标题外层：添加.title-wrapper确保顶端对齐 -->
+                <td class="title-wrapper" style="width:80%;vertical-align:middle">
                   <a href="https://arxiv.org/abs/2503.16177">
                     <span class="papertitle">OccluGaussian: Occlusion-Aware Gaussian Splatting for Large Scene Reconstruction and Rendering</span>
                   </a>
@@ -211,19 +295,24 @@
                   <a href="https://arxiv.org/abs/2503.16177">arXiv</a>
                   <p></p>
                   <p>
-                    一种通过遮挡感知相机聚类和基于区域的高斯剔除来加速和增强大规模3D场景重建的方法。
+                    一种通过 occlusion-aware 相机聚类和基于区域的高斯剔除来加速和增强大规模3D场景重建的方法。
                   </p>
                 </td>
               </tr>
 
-              <tr onmouseout="dahyf_stop()" onmouseover="dahyf_start()" bgcolor="#ffffd0">
-                <td style="padding:16px;width:20%;vertical-align:middle">
-                  <div class="one" style="display: flex; align-items: center;">
-                    <div class="two" id='dahyf_video'><video  width=100% height=100% muted autoplay loop>
-                    <source src="images/dahyf.mp4" type="video/mp4">
-                      您的浏览器不支持视频标签。
-                    </video></div>
-                    <img src='images/dahyf.png' id='dahyf_image' width=100%>
+              <!-- 论文2: Direction-Aware Hybrid Representation Learning -->
+              <tr onmouseout="dahyf_stop()" onmouseover="dahyf_start()" bgcolor="#ffffd0" class="paper-row">
+                <td class="media-wrapper" style="width:20%;vertical-align:middle">
+                  <div class="one">
+                    <div class="media-container">
+                      <div class="overlay-media" id='dahyf_video'>
+                        <video muted autoplay loop>
+                          <source src="images/dahyf.mp4" type="video/mp4">
+                          您的浏览器不支持视频标签。
+                        </video>
+                      </div>
+                      <img src='images/dahyf.png' id='dahyf_image' width=100%>
+                    </div>
                   </div>
                   <script type="text/javascript">
                     function dahyf_start() {
@@ -238,15 +327,14 @@
                     dahyf_stop()
                   </script>
                 </td>
-                
-                <td style="padding:8px;width:80%;vertical-align:middle">
+                <td class="title-wrapper" style="width:80%;vertical-align:middle">
                   <a href="https://arxiv.org/abs/2504.01298">
                     <span class="papertitle">Direction-Aware Hybrid Representation Learning for 3D Hand Pose and Shape Estimation</span>
                   </a>
                   <br>
                   <em>CVPRW</em>, 2025, 
                   <span class="glowing-text">
-                    <b>在HO3Dv2/v3排行榜PA-MPJPE指标中获得第一名</b>
+                    <b>在HO3Dv2/v3排行榜的PA-MPJPE指标中获得第一名</b>
                   </span>
                   <br>
                   <a href="">项目页面</a>
@@ -254,21 +342,24 @@
                   <a href="https://arxiv.org/abs/2504.01298">arXiv</a>
                   <p></p>
                   <p>
-                    一种3D手部姿态/形状估计算法，融合隐式图像/显式2D关节特征与像素方向信息，通过基于置信度的预测减少运动抖动。
+                    一种3D手部姿态/形状估计方法，将隐式图像/显式2D关节特征与像素方向信息融合，通过基于置信度的预测减少运动抖动。
                   </p>
                 </td>
               </tr>
 
-              <tr onmouseout="SpecTRe_stop()" onmouseover="SpecTRe_start()" bgcolor="#ffffd0">
-                <td style="padding:16px;width:20%;vertical-align:middle">
-                  <div class="one" style="display: flex; align-items: center;">
-                    <div class="two" id='SpecTRe_video'>
-                      <video  width=100% height=100% muted autoplay loop>
-                        <source src="images/SpecTRe.mp4" type="video/mp4">
+              <!-- 论文3: SpecTRe -->
+              <tr onmouseout="SpecTRe_stop()" onmouseover="SpecTRe_start()" bgcolor="#ffffd0" class="paper-row">
+                <td class="media-wrapper" style="width:20%;vertical-align:middle">
+                  <div class="one">
+                    <div class="media-container">
+                      <div class="overlay-media" id='SpecTRe_video'>
+                        <video muted autoplay loop>
+                          <source src="images/SpecTRe.mp4" type="video/mp4">
                           您的浏览器不支持视频标签。
                       </video>
                     </div>
                     <img src='images/SpecTRe.svg' id='SpecTRe_image' width=100%>
+					</div>
                   </div>
                   <script type="text/javascript">
                     function SpecTRe_start() {
@@ -283,8 +374,7 @@
                     SpecTRe_stop()
                   </script>
                 </td>
-                
-                <td style="padding:8px;width:80%;vertical-align:middle">
+                <td class="title-wrapper" style="width:80%;vertical-align:middle">
                   <a href="">
                     <span class="papertitle">SpecTRe-GS: Modeling Highly Specular Surfaces with Reflected Nearby Objects by Tracing Rays in 3D Gaussian Splatting</span>
                   </a>
@@ -299,21 +389,24 @@
                   <a href="">arXiv</a>
                   <p></p>
                   <p>
-                    一种通过光线追踪增强3DGS以处理高光互反射的方法，分离高光/粗糙表面类型并优化几何结构，以提高渲染精度并支持场景编辑。
+                    一种通过在3D高斯溅射中追踪光线来增强3DGS以处理高光反射的方法，分离高光/粗糙表面类型并优化几何结构，以提高渲染精度并支持场景编辑。
                   </p>
                 </td>
               </tr>
 
-              <tr onmouseout="Hybrid_stop()" onmouseover="Hybrid_start()" bgcolor="#ffffd0">
-                <td style="padding:16px;width:20%;vertical-align:middle">
-                  <div class="one" style="display: flex; align-items: center;">
-                    <div class="two" id='Hybrid_video'>
-                      <video  width=100% height=100% muted autoplay loop>
-                        <source src="images/Hybrid.mp4" type="video/mp4">
+              <!-- 论文4: Hybrid -->
+              <tr onmouseout="Hybrid_stop()" onmouseover="Hybrid_start()" bgcolor="#ffffd0" class="paper-row">
+                <td class="media-wrapper" style="width:20%;vertical-align:middle">
+                  <div class="one">
+                    <div class="media-container">
+                      <div class="overlay-media" id='Hybrid_video'>
+                        <video muted autoplay loop>
+                          <source src="images/Hybrid.mp4" type="video/mp4">
                           您的浏览器不支持视频标签。
-                      </video>
-                    </div>
-                    <img src='images/Hybrid.png' id='Hybrid_image' width=100%>
+                      	</video>
+                      </div>
+                      <img src='images/Hybrid.png' id='Hybrid_image' width=100%>
+					</div>
                   </div>
                   <script type="text/javascript">
                     function Hybrid_start() {
@@ -329,7 +422,7 @@
                   </script>
                 </td>
                 
-                <td style="padding:8px;width:80%;vertical-align:middle">
+                <td class="title-wrapper" style="width:80%;vertical-align:middle">
                   <a href="">
                     <span class="papertitle">Hybrid Mesh-Gaussian Representation for Efficient Indoor Scene Reconstruction</span>
                   </a>
@@ -341,22 +434,24 @@
                   <a href="https://www.arxiv.org/pdf/2506.06988">arXiv</a>
                   <p></p>
                   <p>
-                    一种混合3DGS和纹理网格表示，其中网格处理纹理丰富的平坦区域，高斯模型复杂几何结构，通过预热策略和透射率感知监督的联合训练进行优化，以更少的高斯实现相当的渲染质量和更高的FPS。
+                    一种混合3DGS和带纹理网格的表示方法，其中网格处理富含纹理的平坦区域，高斯处理复杂几何结构，通过预热策略和透射率感知监督的联合训练进行优化，以更少的高斯实现相当的渲染质量和更高的FPS。
                   </p>
                 </td>
               </tr>
 
 
-              <tr onmouseout="zeropto3_stop()" onmouseover="zeropto3_start()" bgcolor="#ffffd0">
-                <td style="padding:16px;width:20%;vertical-align:middle">
-                  <div class="one" style="display: flex; align-items: center;">
-                    <div class="two" id='zeropto3_video'>
-                      <video  width=100% height=100% muted autoplay loop>
-                        <source src="images/zeropto3.mp4" type="video/mp4">
+              <tr onmouseout="zeropto3_stop()" onmouseover="zeropto3_start()" bgcolor="#ffffd0" class="paper-row">
+                <td class="media-wrapper" style="width:20%;vertical-align:middle">
+                  <div class="one">
+                    <div class="media-container">
+                      <div class="overlay-media" id='zeropto3_video'>
+                        <video muted autoplay loop>
+                          <source src="images/zeropto3.mp4" type="video/mp4">
                           您的浏览器不支持视频标签。
-                      </video>
-                    </div>
-                    <img src='images/zeropto3.png' id='zeropto3_image' width=100%>
+                      	</video>
+                      </div>
+                      <img src='images/zeropto3.png' id='zeropto3_image' width=100%>
+					</div>
                   </div>
                   <script type="text/javascript">
                     function zeropto3_start() {
@@ -372,7 +467,7 @@
                   </script>
                 </td>
                 
-                <td style="padding:8px;width:80%;vertical-align:middle">
+                <td class="title-wrapper" style="width:80%;vertical-align:middle">
                   <a href="">
                     <span class="papertitle">Zero-P-to-3: Zero-Shot Partial-View Images to 3D Object</span>
                   </a>
@@ -384,36 +479,40 @@
                   <a href="https://arxiv.org/pdf/2505.23054">arXiv</a>
                   <p></p>
                   <p>
-                    部分观测下的生成式3D重建受限于有限的视角范围和不一致的生成，而无训练的Zero-P-to-3通过基于融合的DDIM采样和迭代优化整合局部密集观测和多源先验，尤其在不可见区域优于现有方法。
+                    部分观察中的生成式3D重建受到有限视场和生成不一致的阻碍，而无需训练的Zero-P-to-3通过基于融合的DDIM采样和迭代优化整合局部密集观察和多源先验，特别是在不可见区域优于现有技术。
                   </p>
                   </td>
               </tr>
 
-
-              <tr onmouseout="davigs_stop()" onmouseover="davigs_start()" bgcolor="#ffffd0">
-                <td style="padding:16px;width:20%;vertical-align:middle">
-                  <div class="one" style="display: flex; align-items: center;">
-                    <div class="two" id='DAVIGS_video'><video  width=100% height=100% muted autoplay loop>
-                    <source src="images/DAVIGS.mp4" type="video/mp4">
-                      您的浏览器不支持视频标签。
-                    </video></div>
-                    <img src='images/DAVIGS.png' id='DAVIGS_image' width=100%>
+              <!-- 论文6: davigs -->
+              <tr onmouseout="davigs_stop()" onmouseover="davigs_start()" bgcolor="#ffffd0" class="paper-row">
+                <td class="media-wrapper" style="width:20%;vertical-align:middle">
+                  <div class="one">
+                    <div class="media-container">
+                      <div class="overlay-media" id='davigs_video'>
+                        <video muted autoplay loop>
+                          <source src="images/DAVIGS.mp4" type="video/mp4">
+                          您的浏览器不支持视频标签。
+                        </video>
+                      </div>
+                      <img src='images/DAVIGS.png' id='davigs_image' width=100%>
+                    </div>
                   </div>
                   <script type="text/javascript">
                     function davigs_start() {
-                      document.getElementById('DAVIGS_video').style.opacity = "1";
-                      document.getElementById('DAVIGS_image').style.opacity = "0";
+                      document.getElementById('davigs_video').style.opacity = "1";
+                      document.getElementById('davigs_image').style.opacity = "0";
                     }
 
                     function davigs_stop() {
-                      document.getElementById('DAVIGS_video').style.opacity = "0";
-                      document.getElementById('DAVIGS_image').style.opacity = "1";
+                      document.getElementById('davigs_video').style.opacity = "0";
+                      document.getElementById('davigs_image').style.opacity = "1";
                     }
                     davigs_stop()
                   </script>
                 </td>
                 
-                <td style="padding:8px;width:80%;vertical-align:middle">
+                <td class="title-wrapper" style="width:80%;vertical-align:middle">
                   <a href="https://arxiv.org/pdf/2501.10788">
                     <span class="papertitle">Decoupling Appearance Variations with 3D Consistent Features in Gaussian Splatting</span>
                   </a>
@@ -425,19 +524,23 @@
                   <a href="https://arxiv.org/pdf/2501.10788">arXiv</a>
                   <p></p>
                   <p>
-                    一种以即插即用且高效的方式解耦外观变化的方法。
+                    一种以即插即用和高效的方式解耦外观变化的方法。
                   </p>
                 </td>
               </tr>
 
-              <tr onmouseout="vase_stop()" onmouseover="vase_start()" bgcolor="#ffffd0">
-                <td style="padding:16px;width:20%;vertical-align:middle">
-                  <div class="one" style="display: flex; align-items: center;">
-                    <div class="two" id='vastgaussian_video'><video  width=100% height=100% muted autoplay loop>
-                    <source src="images/vastgaussian.mp4" type="video/mp4">
-                    您的浏览器不支持视频标签。
-                    </video></div>
-                    <img src='images/vastgaussian.png' id='vastgaussian_image' width="160">
+              <tr onmouseout="vase_stop()" onmouseover="vase_start()" bgcolor="#ffffd0" class="paper-row">
+                <td class="media-wrapper" style="width:20%;vertical-align:middle">
+                  <div class="one">
+                    <div class="media-container">
+                      <div class="overlay-media" id='vastgaussian_video'>
+                        <video muted autoplay loop>
+                          <source src="images/vastgaussian.mp4" type="video/mp4">
+                          您的浏览器不支持视频标签。
+                        </video>
+                      </div>
+                      <img src='images/vastgaussian.png' id='vastgaussian_image' width=100%>
+                    </div>
                   </div>
                   <script type="text/javascript">
                     function vase_start() {
@@ -453,7 +556,7 @@
                   </script>
                 </td>
                 
-                <td style="padding:8px;width:80%;vertical-align:middle">
+                <td class="title-wrapper" style="width:80%;vertical-align:middle">
                   <a href="https://arxiv.org/abs/2402.17427">
                 <span class="papertitle">Vastgaussian: Vast 3d gaussians for large scene reconstruction</span>
                   </a>
@@ -465,19 +568,23 @@
                   <a href="https://arxiv.org/abs/2402.17427">arXiv</a>
                   <p></p>
                   <p>
-                  一种用于大场景重建的方法，可实现快速优化和高保真实时渲染。
+                  一种用于大场景重建的方法，支持快速优化和高保真实时渲染。
                   </p>
                 </td>
               </tr>
 
-              <tr onmouseout="ever_stop()" onmouseover="ever_start()" bgcolor="#ffffd0">
-                <td style="padding:16px;width:20%;vertical-align:middle">
-                  <div class="one" style="display: flex; align-items: center;">
-                    <div class="two" id='mirror_video'><video  width=100% height=100% muted autoplay loop>
-                      <source src="images/mirrorgaussian.mp4" type="video/mp4">
-                      您的浏览器不支持视频标签。
-                      </video></div>
-                      <img src='images/mirrorgaussian.png' id='mirror_image' width="160">
+              <tr onmouseout="ever_stop()" onmouseover="ever_start()" bgcolor="#ffffd0" class="paper-row">
+                <td class="media-wrapper" style="width:20%;vertical-align:middle">
+                  <div class="one">
+                    <div class="media-container">
+                      <div class="overlay-media" id='mirror_video'>
+                        <video muted autoplay loop>
+                          <source src="images/mirrorgaussian.mp4" type="video/mp4">
+                          您的浏览器不支持视频标签。
+                        </video>
+                      </div>
+                      <img src='images/mirrorgaussian.png' id='mirror_image' width=100%>
+                    </div>
                   </div>
                   <script type="text/javascript">
                     function ever_start() {
@@ -492,7 +599,7 @@
                     ever_stop()
                   </script>
                 </td>
-                <td style="padding:8px;width:80%;vertical-align:middle">
+                <td class="title-wrapper" style="width:80%;vertical-align:middle">
                   <a href="https://arxiv.org/abs/2405.11921">
                 <span class="papertitle">Mirrorgaussian: Reflecting 3d gaussians for reconstructing mirror reflections</span>
                   </a>
@@ -509,14 +616,18 @@
                 </td>
               </tr>
 
-              <tr onmouseout="unorthogonalized_stop()" onmouseover="unorthogonalized_start()" bgcolor="#ffffd0">
-                <td style="padding:16px;width:20%;vertical-align:middle">
-                  <div class="one" style="display: flex; align-items: center;">
-                    <div class="two" id='unorthogonalized_video'><video  width=100% height=100% muted autoplay loop>
-                      <source src="" type="video/mp4">
-                      您的浏览器不支持视频标签。
-                      </video></div>
-                      <img src='images/unorthogonalized.png' id='unorthogonalized_image' width="160">
+              <tr onmouseout="unorthogonalized_stop()" onmouseover="unorthogonalized_start()" bgcolor="#ffffd0" class="paper-row">
+                <td class="media-wrapper" style="width:20%;vertical-align:middle">
+                  <div class="one">
+                    <div class="media-container">
+                      <div class="overlay-media" id='unorthogonalized_video'>
+                        <video muted autoplay loop>
+                          <source src="images/unorthogonalized.mp4" type="video/mp4">
+                          您的浏览器不支持视频标签。
+                        </video>
+                      </div>
+                      <img src='images/unorthogonalized.png' id='unorthogonalized_image' width=100%>
+                    </div>
                   </div>
                   <script type="text/javascript">
                     function unorthogonalized_start() {
@@ -528,10 +639,10 @@
                       document.getElementById('unorthogonalized_video').style.opacity = "0";
                       document.getElementById('unorthogonalized_image').style.opacity = "1";
                     }
-                    ever_stop()
+                    unorthogonalized_stop()
                   </script>
                 </td>
-                <td style="padding:8px;width:80%;vertical-align:middle">
+                <td class="title-wrapper" style="width:80%;vertical-align:middle">
                   <a href="https://arxiv.org/pdf/2312.00462">
                 <span class="papertitle">LEARNING UNORTHOGONALIZED MATRICES FOR ROTATION ESTIMATION</span>
                   </a>
@@ -543,7 +654,7 @@
                   <a href="https://arxiv.org/pdf/2312.00462">arXiv</a>
                   <p></p>
                   <p>
-                    3D旋转估计依赖于旋转表示，本研究揭示常见的正交化过程会降低训练效率，因此主张学习非正交伪旋转矩阵(PRoM)，其能更快收敛到更好的解，并在大规模基准测试的人体姿态估计中取得最先进的结果。
+                    3D旋转估计依赖于旋转表示，这项工作揭示常见的正交化过程会降低训练效率，因此主张学习非正交化伪旋转矩阵（PRoM），其能更快收敛到更好的解，并在大规模基准测试的人体姿态估计中取得最先进的结果。
                   </p>
                 </td>
               </tr>
@@ -569,17 +680,17 @@
                 <td style="padding:8px;width:80%;vertical-align:center">
                   <a>手机端3DGS重建</a>
                   <br>
-                  <a>空地融合大场景重建与实时渲染</a>
+                  <a>大场景重建与实时渲染</a>
                   <br>
                   <a>大场景相机位姿估计</a>
                   <br>
                   <a>数字人3D动作捕捉</a>
                   <br>
-                  <a>基于视频的多模态内容搜索技术</a>
+                  <a>基于多模态视频的内容搜索技术</a>
                   <br>
-                  <a>主导华为iVision平台及其运营</a>
+                  <a>主导华为iVision平台及其运营商</a>
                   <br>
-                  <a>负责工业缺陷检测</a>
+                  <a>负责工业缺陷检测。</a>
                 </td>
               </tr>
             </tbody></table>
@@ -590,7 +701,7 @@
                 <td style="padding:0px">
                   <br>
                   <p style="text-align:center;font-size:small;">
-                    感谢Jon Barron的网站开源代码
+                    感谢Jon Barron的网站开源
                     <a href="https://github.com/jonbarron/jonbarron_website">源代码</a>。
                   </p>
                 </td>
